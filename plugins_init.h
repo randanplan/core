@@ -22,6 +22,7 @@
   You should have received a copy of the GNU General Public License
   along with Grbl.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "plugins.h"
 
 #if PLASMA_ENABLE
     extern void plasma_init (void);
@@ -54,6 +55,9 @@
 #endif
 
     my_plugin_init();
+    canbus_init();
+    odrive_init();
+
 
 #if ODOMETER_ENABLE
     extern void odometer_init (void);
