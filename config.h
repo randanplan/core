@@ -29,7 +29,7 @@
 #define _GRBL_CONFIG_H_
 
 // Compile time only default configuration
-
+#include "my_machine.h"
 #ifndef N_AXIS
 /*! Defines number of axes supported - minimum 3, maximum 6
 
