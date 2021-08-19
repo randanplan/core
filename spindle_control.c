@@ -158,6 +158,7 @@ static inline uint_fast16_t invert_pwm (spindle_pwm_t *pwm_data, uint_fast16_t p
 {
     return pwm_data->invert_pwm ? pwm_data->period - pwm_value - 1 : pwm_value;
 }
+#if !defined(SPINDLE_RPM_CONTROLLED) && !defined(SPINDLEPWMPIN)
 
 // Precompute PWM values for faster conversion.
 // Returns false if no PWM range possible, driver should revert to simple on/off spindle control if so.
@@ -223,3 +224,5 @@ uint_fast16_t spindle_compute_pwm_value (spindle_pwm_t *pwm_data, float rpm, boo
 
     return pwm_value;
 }
+
+#endif

@@ -395,13 +395,17 @@ typedef union {
 typedef struct {
     float rpm_max;
     float rpm_min;
+#if !defined(SPINDLE_RPM_CONTROLLED) && !defined(SPINDLEPWMPIN)
     float pwm_freq;
     float pwm_period;
     float pwm_off_value;
     float pwm_min_value;
     float pwm_max_value;
+#endif
     float at_speed_tolerance;
+#if SPINDLE_NPWM_PIECES
     pwm_piece_t pwm_piece[SPINDLE_NPWM_PIECES];
+#endif
     pid_values_t pid;
     uint16_t ppr; // Spindle encoder pulses per revolution
     spindle_state_t invert;
